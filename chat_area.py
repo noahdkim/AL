@@ -26,3 +26,10 @@ class Chat_Area:
             self.textarea.config(state=DISABLED)
             self.msg_area.delete(0, 'end')
             self.user_turn = False
+            self.AL_response()
+
+    def AL_response(self):
+        self.textarea.config(state=NORMAL)
+        self.textarea.insert(INSERT, 'AL: %s\n' % "Hello")
+        self.textarea.config(state=DISABLED)
+        self.user_turn = True
