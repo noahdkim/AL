@@ -1,7 +1,10 @@
 from tkinter import *
 
-class Chat_Area:
+from al import AL
+
+class Visualization:
     def __init__(self, master):
+        self.al = AL()
         self.user_turn = True
 
         self.textarea = Text(master)
@@ -20,16 +23,18 @@ class Chat_Area:
         """Add message to textarea and clear msg_area."""
         msg = self.msg_area.get()
         if user_turn and msg:
-            print(self.msg_area.get())
             self.textarea.config(state=NORMAL)
             self.textarea.insert(INSERT, 'ME: %s\n' % msg)
             self.textarea.config(state=DISABLED)
             self.msg_area.delete(0, 'end')
             self.user_turn = False
-            self.AL_response()
+            # Display AL's response
+            self.textarea.config(state=NORMAL)
+            self.textarea.insert(INSERT, 'AL: %s\n' % self.al.tell(msg))
+            self.textarea.config(state=DISABLED)
+            self.user_turn = True
 
-    def AL_response(self):
-        self.textarea.config(state=NORMAL)
-        self.textarea.insert(INSERT, 'AL: %s\n' % "Hello")
-        self.textarea.config(state=DISABLED)
-        self.user_turn = True
+
+root = Tk()
+app = Visualization(root)
+root.mainloop()

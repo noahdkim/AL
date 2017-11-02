@@ -1,2 +1,2 @@
 # AL
-Chat bot using Python and Tkinter
+A [SHRDLU](https://en.wikipedia.org/wiki/SHRDLU) clone using Python with Tkinter.
