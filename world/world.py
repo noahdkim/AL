@@ -1,6 +1,8 @@
 import pygame
+
 from world.cube import Cube
 from world.table import Table, Floor
+
 
 class World:
     screen = pygame.display.set_mode((900, 600))

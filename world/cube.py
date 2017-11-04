@@ -1,7 +1,8 @@
 import pygame
 
+
 class Cube:
-    color = (0, 128, 255)  # Orange
+    color = (0, 128, 255)  # Orange # amazing
     width, height = 60, 60
     speed_x = 0
     speed_y = 1
@@ -32,12 +33,11 @@ class Cube:
         self.draw(self.screen, self.color, self.cube_rect)
 
     def animate(self, table, floor):
-        if(self.cube_rect.colliderect(table.table_rect) or
-           self.cube_rect.colliderect(floor.floor_rect)):
+        if self.cube_rect.colliderect(table.table_rect) or \
+           self.cube_rect.colliderect(floor.floor_rect):
             self.speed_y = 0
         else:
             self.cube_rect.x = self.cube_rect.x + self.speed_x
             self.cube_rect.y = self.cube_rect.y + self.speed_y
-
         self.draw(self.screen, self.color, self.cube_rect)
         return self

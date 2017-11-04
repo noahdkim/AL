@@ -1,5 +1,6 @@
 import pygame
 
+
 class Table:
     color = (165, 42, 42)  # brown
     width, height = 900, 50
@@ -14,9 +15,9 @@ class Table:
 
     def draw(self):
         """Draw square on screen."""
-        pygame.draw.rect(self.screen,
-                         self.color,
+        pygame.draw.rect(self.screen, self.color,
                          pygame.Rect(self.x, self.y, self.width, self.height))
+
 
 class Floor:
     color = (0, 0, 0)  # black
@@ -32,6 +33,5 @@ class Floor:
 
     def draw(self):
         """Draw square on screen."""
-        pygame.draw.rect(self.screen,
-                         self.color,
+        pygame.draw.rect(self.screen, self.color,
                          pygame.Rect(self.x, self.y, self.width, self.height))
