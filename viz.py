@@ -16,7 +16,7 @@ class Visualization:
         self.msg_area = Entry(master)
         self.msg_area.grid(row=1, column=1)
         self.msg_area.bind('<Return>', lambda x: self.send_msg(self.user_turn))
-        self.enter = Button(master, text='Send', 
+        self.enter = Button(master, text='Send',
                                     command=self.send_msg(self.user_turn)).grid(row=1, column=2)
 
     def send_msg(self, user_turn):
@@ -34,8 +34,7 @@ class Visualization:
             # Display AL's response
             self.textarea.config(state=NORMAL)
             self.textarea.insert(INSERT, 'AL: ', ("AL"))
-            self.textarea.insert(INSERT, '%s\n' % self.al.tell(msg))
-            self.world.al_command(msg)
+            self.textarea.insert(INSERT, '%s\n' % self.al.tell(msg, self.world))
             self.textarea.config(state=DISABLED)
             self.user_turn = True
 
