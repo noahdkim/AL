@@ -9,7 +9,7 @@ class Table:
     table_rect = pygame.Rect(x, y, width, height)
     def __init__(self):
         """Initialize and draw square."""
-        self.draw()
+
 
     def draw(self):
         """Draw square on screen."""
@@ -26,7 +26,6 @@ class Floor:
 
     def __init__(self):
         """Initialize and draw square."""
-        self.draw()
 
     def draw(self):
         """Draw square on screen."""

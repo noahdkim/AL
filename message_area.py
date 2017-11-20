@@ -38,4 +38,5 @@ class MessageArea:
             self.textarea.insert(INSERT, 'AL: ', ("AL"))
             self.textarea.insert(INSERT, '%s\n' % self.al.tell(msg))
             self.textarea.config(state=DISABLED)
+
             self.user_turn = True

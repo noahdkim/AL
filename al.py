@@ -2,8 +2,9 @@ from world.world import World
 
 
 class AL:
-    def __init__(self):
-        self.world = World()
+    def __init__(self, world):
+        self.world = world
+        
     def tell(self, msg):
         if "under" in msg:
             self.world.move(self.world.objects[0], self.world.table, "under")
