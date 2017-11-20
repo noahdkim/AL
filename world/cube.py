@@ -8,7 +8,6 @@ class Cube:
     speed_y = 1
     screen = 0
     cube_rect = pygame.Rect(30, 30, width, height)
-
     def __init__(self, screen, color, x, y):
         """Initialize and draw square."""
         self.screen = screen
@@ -39,5 +38,4 @@ class Cube:
         else:
             self.cube_rect.x = self.cube_rect.x + self.speed_x
             self.cube_rect.y = self.cube_rect.y + self.speed_y
-        self.draw(self.screen, self.color, self.cube_rect)
         return self

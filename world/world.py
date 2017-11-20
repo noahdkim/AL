@@ -1,48 +1,30 @@
 import pygame
 
 from world.cube import Cube
-from world.table import Table, Floor
+from world.structures import Floor
+from world.structures import Table
+
 
 
 class World:
-    screen = pygame.display.set_mode((900, 600))
-    x = 30
-    y = 30
-    clock = pygame.time.Clock()
-    orange = (255, 100, 0)
-    orange_cube = Cube(screen, orange, x, y)
-    table = Table(screen)
-    floor = Floor(screen)
-    cubes = [orange_cube]
-
+    floor = Floor()
+    table = Table()
     def __init__(self):
-        pygame.init()
-        self.screen.fill((255, 255, 255))
-        self.table.draw()
-        self.floor.draw()
-        self.orange_cube = Cube(self.screen, self.orange, self.x, self.y)
-        self.animate(self.cubes)
-        pygame.display.flip()
-        self.clock.tick(60)
+        screen = pygame.display.set_mode((900, 600))
+        x = 30
+        y = 30
+        orange = (255, 100, 0)
+        self.objects = [Cube(screen, orange, x, y)]
 
 
-    def al_command(self, instruct):
-        pygame.event.pump()
-        self.screen.fill((255, 255, 255))
-        self.floor.draw()
-        self.table.draw()
-        self.cubes[0] = self.cubes[0].move(self.table, "under")
-        self.animate(self.cubes)
-        pygame.display.flip()
+    def move(self, object1, object2, relation):
+        self.objects[0] = self.objects[0].move(self.table, relation)
+        self.animate()
 
-    def animate(self, cubes):
+    def animate(self):
         animate = True
         while animate:
-            pygame.event.pump()
-            self.screen.fill((255, 255, 255))
-            self.floor.draw()
-            self.table.draw()
-            for cube in cubes:
+            for cube in self.objects:
                 animate = animate and cube.speed_y
                 cube = cube.animate(self.table, self.floor)
             pygame.display.flip()

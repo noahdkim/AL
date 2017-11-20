@@ -7,15 +7,13 @@ class Table:
     x, y = 0, 300
     screen = 0
     table_rect = pygame.Rect(x, y, width, height)
-
-    def __init__(self, screen):
+    def __init__(self):
         """Initialize and draw square."""
-        self.screen = screen
         self.draw()
 
     def draw(self):
         """Draw square on screen."""
-        pygame.draw.rect(self.screen, self.color,
+        pygame.draw.rect(pygame.display.set_mode((900, 600)), self.color,
                          pygame.Rect(self.x, self.y, self.width, self.height))
 
 
@@ -26,12 +24,11 @@ class Floor:
     screen = 0
     floor_rect = pygame.Rect(x, y, width, height)
 
-    def __init__(self, screen):
+    def __init__(self):
         """Initialize and draw square."""
-        self.screen = screen
         self.draw()
 
     def draw(self):
         """Draw square on screen."""
-        pygame.draw.rect(self.screen, self.color,
+        pygame.draw.rect(pygame.display.set_mode((900, 600)), self.color,
                          pygame.Rect(self.x, self.y, self.width, self.height))
