@@ -3,6 +3,8 @@ class Cube:
         """Initialize and draw square."""
         self.x = x
         self.y = y
+        self.speed_y = 6
+        self.speed_x = 0
         self.width = 60
         self.height = 60
         self.color = color
@@ -14,7 +16,6 @@ class Cube:
         elif(relation == "under"):
             # Possibly include gravity and a random range so cubes are not floating.
             self.y = obj.y + obj.height
-            self.speed_y = 1
+            self.speed_y = 6
         print(relation, self.speed_y)
         return self
-        self.draw(self.screen, self.color, self.cube_rect)

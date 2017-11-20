@@ -8,15 +8,16 @@ from world.structures import Table
 class World:
     floor = Floor()
     table = Table()
+
     def __init__(self):
         x = 30
         y = 30
         orange = (255, 100, 0)
-        self.objects = [Cube(orange, x, y), self.floor, self.table]
-
+        self.stationary = [self.floor, self.table]
+        self.objects = [[Cube(orange, x, y)], self.stationary]
 
     def move(self, object1, object2, relation):
-        self.objects[0] = self.objects[0].move(self.table, relation)
+        self.objects[0][0] = self.objects[0][0].move(self.table, relation)
 
     def animate(self):
         animate = True

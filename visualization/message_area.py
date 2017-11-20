@@ -7,10 +7,11 @@ from world.world import World
 
 
 class MessageArea:
-    def __init__(self, al, master):
+    def __init__(self, al, py_world, master):
         # Create Message GUI
         self.user_turn = True
         self.al = al
+        self.py_world = py_world
         self.textarea = Text(master)
         self.textarea.grid(row=0, columnspan=3, sticky=N + S + E + W)
         self.textarea.config(state=DISABLED)
@@ -37,6 +38,8 @@ class MessageArea:
             self.textarea.config(state=NORMAL)
             self.textarea.insert(INSERT, 'AL: ', ("AL"))
             self.textarea.insert(INSERT, '%s\n' % self.al.tell(msg))
+            self.py_world.draw_world()
+            self.py_world.animate()
             self.textarea.config(state=DISABLED)
 
             self.user_turn = True
