@@ -2,7 +2,14 @@ import pygame
 
 class PyWorld:
     screen = pygame.display.set_mode((900, 600))
+
     def __init__(self, world):
+        """Create visual representation of world based on world API using pygame.
+
+        Args:
+            world - world that AL interacts with
+
+        """
         self.world = world
         pygame.display.init()
         pygame.init()
@@ -10,6 +17,7 @@ class PyWorld:
         self.animate()
 
     def draw_world(self):
+        """Display all objects."""
         self.screen.fill((255, 255, 255))
         for item_list in self.world.objects:
             for item in item_list:
@@ -20,6 +28,7 @@ class PyWorld:
         self.clock.tick(60)
 
     def animate(self):
+        """Move cubes until they collide with stationary object."""
         table_cube = self.world.objects[1][0]
         table = pygame.Rect(table_cube.x, table_cube.y, table_cube.width, table_cube.height)
         floor_cube = self.world.objects[1][1]

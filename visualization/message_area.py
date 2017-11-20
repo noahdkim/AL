@@ -8,7 +8,14 @@ from world.world import World
 
 class MessageArea:
     def __init__(self, al, py_world, master):
-        # Create Message GUI
+        """Initialize the message area.
+
+        Args:
+            al - al will receive the messages that are typed in
+            py_world - py_world will be redrawn after al makes API requests
+            master - from tkinter I think.
+
+        """
         self.user_turn = True
         self.al = al
         self.py_world = py_world
