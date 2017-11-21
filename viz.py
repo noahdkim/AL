@@ -3,7 +3,7 @@ from tkinter import *
 
 
 from al import AL
-from world.world import World
+from world import World
 
 
 class Visualization:

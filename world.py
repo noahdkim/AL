@@ -25,5 +25,5 @@ class Table(ColoredObject):
     pass
 
 
-class Floor(ColoredObject)
+class Floor(ColoredObject):
     pass
