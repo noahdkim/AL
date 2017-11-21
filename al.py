@@ -1,13 +1,9 @@
-from world.world import World
+from world import World
 
 
 class AL:
-    def __init__(self, world):
-        self.world = world
+    def __init__(self, world=None):
+        self.world = world if world is not None else World()
 
     def tell(self, msg):
-        if "under" in msg:
-            self.world.move(self.world.objects[0][0], self.world.table, "under")
-            return 'Okay. I have moved the block under the table.'
-        else:
-            return 'Hello'
+        return 'Hello!'
